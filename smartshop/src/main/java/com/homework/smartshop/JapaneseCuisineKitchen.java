@@ -14,7 +14,7 @@ public class JapaneseCuisineKitchen{
             new JapaneseCuisine("b0001", "Chicken Bento", "Bento", 199, "Bento box consists of pieces of chicken cooked in sauce served over rice."),
             new JapaneseCuisine("b0002", "Fish Bento", "Bento", 199, "Bento box consists of fish cooked in sauce served over rice."),
             new JapaneseCuisine("a0001", "California Roll", "Appetizer", 155, "A sushi rolled inside-out, containing cucumber, crab or imitation crab, and avocado."),
-            new JapaneseCuisine("a0001", "Takoyaki", "Appetizer", 129, "Grilled octopus balls consisting of a pancake-like batter and a piece of octopus as a filling.")
+            new JapaneseCuisine("a0002", "Takoyaki", "Appetizer", 129, "Grilled octopus balls consisting of a pancake-like batter and a piece of octopus as a filling.")
     ));
 
     public static String getAllMenu(){
