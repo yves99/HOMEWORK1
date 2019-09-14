@@ -3,7 +3,10 @@ package com.homework.smartshop;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class JapaneseCuisineKitchen{
 
     private static List<JapaneseCuisine> japaneseMenu = new ArrayList<>(Arrays.asList(
@@ -53,6 +56,30 @@ public class JapaneseCuisineKitchen{
             }
         }
         return "<b><u>Total Price</u></b><br><br>" + total + " Bath";
+    }
+
+    private static JapaneseCuisineKitchen cuisine = new JapaneseCuisineKitchen();
+    private JapaneseCuisineKitchen(){}
+    public static JapaneseCuisineKitchen getInstance(){
+        if (cuisine == null) {
+            cuisine = new JapaneseCuisineKitchen();
+        }
+        return cuisine;
+    }
+
+    @Autowired
+    private ShopRepo shopRepo;
+
+    public List<JapaneseCuisine> getAll(){
+        return shopRepo.findAll();
+    }
+
+    public void addMenu(JapaneseCuisine cuisine){
+        shopRepo.save(cuisine);
+    }
+
+    public void deleteMenu(String id) {
+        shopRepo.deleteById(id);
     }
 
 }

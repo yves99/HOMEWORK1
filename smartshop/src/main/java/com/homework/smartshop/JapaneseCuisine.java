@@ -1,12 +1,21 @@
 package com.homework.smartshop;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class JapaneseCuisine {
 
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     private String id;
     private String menu;
     private String category;
     private String description;
     private int price;
+
+    public JapaneseCuisine() {}
 
     public JapaneseCuisine(String id, String menu, String category, int price, String description){
         this.id = id;

@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 
 @RestController
 @SpringBootApplication
@@ -36,6 +40,19 @@ public class SmartshopApplication {
     @RequestMapping("/menu/id={id}")
     public String calculate(@PathVariable String id) {
         return JapaneseCuisineKitchen.calculate(id);
+    }
+
+    @Autowired
+    private JapaneseCuisineKitchen kitchen = JapaneseCuisineKitchen.getInstance();
+
+    @RequestMapping(value = "/menu/create", method=RequestMethod.POST)
+    public void addMenu(@RequestBody JapaneseCuisine cuisine) {
+        kitchen.addMenu(cuisine);
+    }
+
+    @RequestMapping("/pure-menu")
+    public List<JapaneseCuisine> getAll() {
+        return kitchen.getAll();
     }
 
 }
