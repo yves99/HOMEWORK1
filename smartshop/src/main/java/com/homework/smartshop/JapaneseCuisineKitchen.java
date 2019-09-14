@@ -21,13 +21,13 @@ public class JapaneseCuisineKitchen{
     ));
 
     public static String getAllMenu(){
-        String menu = "<b><u>Japanese Recommended Menu</u></b><br><br>";
+    String menu = " ";
         int counter = 1;
         for(int i = 0; i < japaneseMenu.size(); i++){
             String name = japaneseMenu.get(i).getMenu();
             String category = japaneseMenu.get(i).getCategory();
             int price = japaneseMenu.get(i).getPrice();
-            menu += counter + ". " + name + ", Category: " + category + ", Price: " + price + " Bath" + "<br>";
+            menu += counter + ". " + name + ", Category: " + category + ", Price: " + price + " Bath" + " ";
             counter ++;
         }
         return menu;
@@ -38,7 +38,7 @@ public class JapaneseCuisineKitchen{
             String name = japaneseMenu.get(i).getMenu();
             String description = japaneseMenu.get(i).getDescription();
             if (japaneseMenu.get(i).getId().equals(id)){
-                return "<b><u>" + name + "</u></b><br><br>" + description;
+                return name + description;
             }
         }
         return "Menu not found.";
@@ -55,9 +55,10 @@ public class JapaneseCuisineKitchen{
                 }
             }
         }
-        return "<b><u>Total Price</u></b><br><br>" + total + " Bath";
+        return "Total Price = " + total + " Bath";
     }
 
+    //Singleton
     private static JapaneseCuisineKitchen cuisine = new JapaneseCuisineKitchen();
     private JapaneseCuisineKitchen(){}
     public static JapaneseCuisineKitchen getInstance(){

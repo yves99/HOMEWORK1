@@ -45,14 +45,22 @@ public class SmartshopApplication {
     @Autowired
     private JapaneseCuisineKitchen kitchen = JapaneseCuisineKitchen.getInstance();
 
+    //get created menu
+    @RequestMapping("/pure-menu")
+    public List<JapaneseCuisine> getAll() {
+        return kitchen.getAll();
+    }
+
+    //create menu
     @RequestMapping(value = "/menu/create", method=RequestMethod.POST)
     public void addMenu(@RequestBody JapaneseCuisine cuisine) {
         kitchen.addMenu(cuisine);
     }
 
-    @RequestMapping("/pure-menu")
-    public List<JapaneseCuisine> getAll() {
-        return kitchen.getAll();
+    //delete menu
+    @RequestMapping(value = "/menu/delete/{id}", method=RequestMethod.POST)
+    public void deleteMenu(@PathVariable String id) {
+        kitchen.deleteMenu(id);
     }
 
 }
